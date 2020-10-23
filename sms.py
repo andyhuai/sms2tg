@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import logging
 import bitstring
 import datetime
@@ -5,7 +6,7 @@ import copy
 from smspdu.codecs import GSM, UCS2
 
 def decode_pdu(data: bytearray):
-    result = GSM.decode(str(data, 'gbk'))
+    result = GSM.decode(data.decode())
     logging.info('result:', result)
     return result
     # result = dict()
