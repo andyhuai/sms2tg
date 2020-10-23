@@ -17,7 +17,6 @@ def init(port: str, baudrate: int):
 
     # enable call indication
     comm.execute('AT+CLIP=1')
-    comm.execute('AT+WSCL=6,4')
     comm.execute('AT+CMGF=1')
     logging.info('init serial')
 
@@ -56,7 +55,7 @@ def fetch_unread_messages():
     logging.info('Fetching unread messages')
     result1 = comm.execute('AT+CSQ')
     logging.debug(result1)
-    result = comm.execute('AT+CMGL=4')
+    result = comm.execute('AT+CMGL=ALL')
     p = 0
 
     while p < len(result):
