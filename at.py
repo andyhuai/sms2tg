@@ -17,7 +17,7 @@ def init(port: str, baudrate: int):
 
     # enable call indication
     comm.execute('AT+CLIP=1')
-    # comm.execute('AT+CMGF=1')
+    comm.execute('AT+CMGF=0')
     logging.info('init serial')
 
 def set_callback(on_message, on_call = None, on_call_end = None):
