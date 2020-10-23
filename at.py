@@ -52,7 +52,7 @@ def decode_response(line: str):
 
 def fetch_unread_messages():
     logging.info('Fetching unread messages')
-    result1 = comm.execute('AT+CMGL')
+    result1 = comm.execute('AT+CSQ')
     logging.debug(result1)
     result = comm.execute('AT+CMGL=4')
     p = 0
