@@ -1,0 +1,20 @@
+{
+  "sms": {
+    "device_path": "/dev/ttyUSB2",
+    "device_baudrate": 19200,
+    "label": "My Phone"
+  },
+  "db": {
+    "path": "data.db"
+  },
+  "notification_format": {
+    "call": "{source} is calling to {label}",
+    "message": "{content}\n\nFrom {source}\nTo {label}\n{timestamp}"
+  },
+  "phone": {
+    "autoreply_with_audio": true,
+    "autoreply_audio_exec": ["mpg123", "tts.mp3"],
+    "autoreply_with_sms": false,
+    "autoreply_content": ""
+  }
+}
