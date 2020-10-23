@@ -5,7 +5,7 @@ import copy
 from smspdu.codecs import GSM, UCS2
 
 def decode_pdu(data: bytearray):
-    result = UCS2.decode(data)
+    result = GSM.decode(data)
     logging.info('result:', result)
     return result
     # result = dict()
