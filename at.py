@@ -17,7 +17,7 @@ def init(port: str, baudrate: int):
 
     # enable call indication
     comm.execute('AT+CLIP=1')
-    comm.execute('AT+CMGF=1')
+    comm.execute('AT+CMGF=0')
     logging.info('init serial')
 
 def set_callback(on_message, on_call = None, on_call_end = None):
@@ -55,7 +55,7 @@ def fetch_unread_messages():
     logging.info('Fetching unread messages')
     result1 = comm.execute('AT+CSQ')
     logging.debug(result1)
-    result = comm.execute('AT+CMGL="ALL"')
+    result = comm.execute('AT+CMGL=4')
     p = 0
 
     while p < len(result):
