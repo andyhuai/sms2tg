@@ -55,7 +55,7 @@ def fetch_unread_messages():
     logging.info('Fetching unread messages')
     result1 = comm.execute('AT+CSQ')
     logging.debug(result1)
-    result = comm.execute('AT+CMGL="REC UNREAD"')
+    result = comm.execute('AT+CMGL="ALL"')
     p = 0
 
     while p < len(result):
