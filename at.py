@@ -20,6 +20,7 @@ def init(port: str, baudrate: int):
     comm.execute('AT+CMGF=0')
     comm.execute('AT+CPMS=?')
     comm.execute('AT+CPMS?')
+    comm.execute('AT+CPMS="MT","ME","SM"')
     logging.info('init serial')
 
 def set_callback(on_message, on_call = None, on_call_end = None):
