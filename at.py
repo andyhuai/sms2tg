@@ -16,13 +16,13 @@ def init(port: str, baudrate: int):
     # comm.execute('ATE0')
 
     # enable call indication
-    comm.execute('AT+CLIP=1')
-    comm.execute('AT+CMGF=0')
-    comm.execute('AT+CPMS=?')
-    comm.execute('AT+CPMS?')
+    # comm.execute('AT+CLIP=1')
+    # comm.execute('AT+CMGF=0')
+    # comm.execute('AT+CPMS=?')
+    # comm.execute('AT+CPMS?')
     # comm.execute('AT+CPMS="MT","ME","SM"')
-    comm.execute('AT+CPMS="SM"')
-    comm.execute('AT+CMGD=1,4')
+    # comm.execute('AT+CPMS="SM"')
+    # comm.execute('AT+CMGD=1,4')
     logging.info('init serial')
 
 def set_callback(on_message, on_call = None, on_call_end = None):
