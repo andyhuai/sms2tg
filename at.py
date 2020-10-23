@@ -97,6 +97,7 @@ def poll():
                     index = int(args[1])
                     logging.debug('SMS index is {}'.format(index))
                     result = comm.execute('AT+CMGR={}'.format(index))
+                    logging.debug(result)
                     assert(len(result) == 4 and result[0].startswith('+CMGR'))
                     handle_message(result[1], index)
 
