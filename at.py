@@ -44,6 +44,7 @@ def start():
 
 def handle_message(pdu, index):
     result = sms.decode(pdu, index)
+    logging.info(result)
     if result is not None:
         message_callback(source=result['source'], content=result['content'], timestamp=result['timestamp'], pdu=result['pdu'])
         for item in result['indice']:
