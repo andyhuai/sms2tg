@@ -18,5 +18,7 @@ def send_message(msg):
   #print(message)
   smsd.InjectSMS([message])
 
+
 if __name__ == '__main__':
-  send_message('测试一下')
+  # send_message('测试一下')
+  smsd.Shutdown()
