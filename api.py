@@ -12,26 +12,28 @@ def send(to, content):
 	os.system(cmd)
 
 
-def sendCdma():
-	os.system('gammu-smsd-inject -c /etc/gammu-smsdrc-cdma TEXT 17607135876 -unicode -text "test----中文-电信"')
+def sendCdma(to, content):
+	os.system('gammu-smsd-inject -c /etc/gammu-smsdrc-cdma TEXT {} -unicode -text "{}"'.format(to, content))
 
 
 app = Flask(__name__)
 
 
 @app.route('/cdma', methods=['GET'])
-def hello_world():
-	send('17607135876', '测试API')
+def cdma():
+	sendCdma('17607135876', '测试API')
 	return 'Hello World!'
 
 
 # 设置访问URL：'/plus'，methods：允许哪种方式访问
 @app.route('/unicom', methods=['POST'])
-def plus():
+def unicom():
 	data = json.loads(request.data.decode())
 	to = data['to']
 	content = data['content']
-	send(to, content)
+	# send(to, content)
+	print(to)
+	print(content)
 	return json.dumps(to + content)
 
 
