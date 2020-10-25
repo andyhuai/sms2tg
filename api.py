@@ -1,10 +1,9 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # encoding: utf-8
 
 import os
 from flask import Flask
 from flask import request
-import json
 
 
 def send(to, content):
@@ -23,22 +22,29 @@ app = Flask(__name__)
 def cdma():
 	to = request.args.get('to', '')
 	content = request.args.get('content', '')
+	if to == '':
+		return '收件人为空'
+	if content == '':
+		return '发送内容为空'
 	print(to)
 	print(content)
-	# sendCdma(to, content)
+	sendCdma(to, content)
 	return '{}:{}'.format(to, content)
 
 
 # 设置访问URL：'/plus'，methods：允许哪种方式访问
-@app.route('/unicom', methods=['POST'])
+@app.route('/unicom', methods=['GET'])
 def unicom():
-	data = json.loads(request.data.decode())
-	to = data['to']
-	content = data['content']
-	# send(to, content)
+	to = request.args.get('to', '')
+	content = request.args.get('content', '')
+	if to == '':
+		return '收件人为空'
+	if content == '':
+		return '发送内容为空'
 	print(to)
 	print(content)
-	return json.dumps(to + content)
+	send(to, content)
+	return '{}:{}'.format(to, content)
 
 
 if __name__ == '__main__':
