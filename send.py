@@ -5,7 +5,7 @@ import os
 
 
 def send():
-    os.system("sudo gammu-smsd-inject -c /var/gammu-smsdrc-cdma TEXT 17607135876 -text '测试一下'")
+    os.system('gammu-smsd-inject -c /etc/gammu-smsdrc-cdma TEXT 17607135876 -text "test----123"')
 
 
 if __name__ == '__main__':
