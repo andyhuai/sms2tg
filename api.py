@@ -21,8 +21,12 @@ app = Flask(__name__)
 
 @app.route('/cdma', methods=['GET'])
 def cdma():
-	sendCdma('17607135876', '测试API')
-	return 'Hello World!'
+	to = request.args.get('to', '')
+	content = request.args.get('content', '')
+	print(to)
+	print(content)
+	# sendCdma(to, content)
+	return '{}:{}'.format(to, content)
 
 
 # 设置访问URL：'/plus'，methods：允许哪种方式访问
