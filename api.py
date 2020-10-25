@@ -8,7 +8,7 @@ import json
 
 
 def send(to, content):
-	cmd = 'gammu-smsd-inject -c /etc/gammu-smsdrc TEXT ' + to + '-unicode -text "' + content + '"'
+	cmd = 'gammu-smsd-inject -c /etc/gammu-smsdrc TEXT {} -unicode -text "{}"'.format(to, content)
 	os.system(cmd)
 
 
